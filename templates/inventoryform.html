@@ -1,0 +1,156 @@
+{# # Copyright 2015 Google Inc. # # Licensed under the Apache License, Version 2.0 (the "License"); # you may not use this file except in compliance with the License. # You may obtain a copy of the License at # # http://www.apache.org/licenses/LICENSE-2.0
+# # Unless required by applicable law or agreed to in writing, software # distributed under the License is distributed on an "AS IS" BASIS, # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. # See the License for the specific language
+governing permissions and # limitations under the License. #}
+
+<style>
+	table {
+		font-family: arial, sans-serif;
+		border-collapse: collapse;
+		width: 100%;
+	}
+	
+	td,
+	th {
+		border: 1px solid #dddddd;
+		text-align: left;
+		padding: 8px;
+	}
+	
+	tr:nth-child(even) {
+		background-color: #dddddd;
+	}
+	
+	.dropbtn {
+		background-color: #3498DB;
+		color: white;
+		padding: 16px;
+		font-size: 16px;
+		border: none;
+		cursor: pointer;
+	}
+	/* Dropdown button on hover & focus */
+	
+	.dropbtn:hover,
+	.dropbtn:focus {
+		background-color: #2980B9;
+	}
+	/* The container <div> - needed to position the dropdown content */
+	
+	.dropdown {
+		position: relative;
+		display: inline-block;
+	}
+	/* Dropdown Content (Hidden by Default) */
+	
+	.dropdown-content {
+		display: none;
+		position: absolute;
+		background-color: #f1f1f1;
+		min-width: 160px;
+		box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+		z-index: 1;
+	}
+	/* Links inside the dropdown */
+	
+	.dropdown-content a {
+		color: black;
+		padding: 12px 16px;
+		text-decoration: none;
+		display: block;
+	}
+	/* Change color of dropdown links on hover */
+	
+	.dropdown-content a:hover {
+		background-color: #ddd
+	}
+	/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+	
+	.show {
+		display: block;
+	}
+</style>
+
+{# [START form] #} {% extends "base.html" %} {% block content %}
+
+<div class="container" style="margin-bottom:15px">
+	<h1 class="header" style="width:100%; text-align:center; margin-top:15px">{{action}} INVENTORY</h1>
+
+	<form method="POST" enctype="multipart/form-data" autocomplete="off">
+		<select onchange="location = this.value;" ">
+			<option value="/m/1/editI ">Citrus</option>
+			<option value="/m/2/editI ">Watermelon</option>
+			<option value="/m/3/editI ">Pineapple</option>
+			<option value="/m/4/editI ">Blueberry</option>
+			<option value="/m/5/editI ">Strawberry</option>
+			<option value="/m/6/editI ">Mint</option>
+			<option value="/m/7/editI ">Mango</option>
+			<option value="/m/8/editI ">Multipack</option>
+			<option value="/m/9/editI ">Sour Gummy</option>
+			<option value="/m/10/editI ">Rasberry Mint Lemonade</option>
+			<option value="/m/11/editI ">Sour Berry Belt</option>
+			<option value="/m/12/editI ">Blue Blackberry</option>
+			<option value="/m/13/editI ">Mango Peach Pineapple</option>
+			<option value="/m/14/editI ">Blue Raspberry Disposable</option>
+			<option value="/m/15/editI ">Mint Disposable</option>
+			<option value="/m/16/editI ">Mango Disposable</option>
+			<option value="/m/17/editI ">Peach Disposable</option>
+			<option value="/m/18/editI ">Kiwi Strawberry Disposable</option>
+			<option value="/m/19/editI ">Grape Disposable</option>
+			<option value="/m/20/editI ">Pineapple Mango Bottle</option>
+			<option value="/m/21/editI ">Mint Bottle</option>
+			<option value="/m/22/editI ">Raspberry Lemonade Bottle</option>
+			<option value="/m/23/editI ">Strawberry Bottle</option>
+			<option value="/m/24/editI ">Watermelon Bottle</option>
+			<option value="/m/25/editI ">Blueberry Bottle</option>
+			<option value="/m/26/editI ">Candy Apple Bottle</option>
+			<option value="/m/27/editI ">Gummy Bear Bottle</option>
+			<option value="/m/28/editI ">Blue iVape Device</option>
+			<option value="/m/29/editI ">Red iVape Device</option>
+			<option value="/m/30/editI ">Black iVape Device</option>
+			<option value="/m/31/editI ">Rainbow iVape Device</option>
+			<option value="/m/32/editI ">Black Eon Device</option>
+			<option value="/m/33/editI ">Purple Eon Device</option>
+			<option value="/m/34/editI ">Blue Eon Device</option>
+			<option value="/m/35/editI ">Pink Eon Device</option>
+			<option value="/m/36/editI ">Red Eon Device</option>
+			<option value="/m/37/editI ">Chrome Silver Eon Device</option>
+			<option value="/m/38/editI ">Chrome Gold Eon Device</option>
+			<option value="/m/39/editI ">Chrome Rainbow Eon</option>
+      
+      
+   </select>
+</div>
+   <div class="form-group " style="text-align:center ">
+   <br>
+   <table>
+   	<col width=5%>
+   	<col width=40%>
+   	<col width=20%>
+   	<col width=20%>
+   	<tr>
+   		<th>Id</th>
+   		<th>Name</th>
+   		<th>Remain</th>
+   		<th>Ordered</th>
+   	</tr>
+   	<tr>
+   		
+   		<td>{{ inventory.id }}</td>
+   		<td>{{ inventory.name }}</td>
+   		<td><input name="remain" id="remain" type="text" placeholder="Remain" value="{{inventory.remain}}" class="form-control" /></td>
+   		<td><input name="purchased" id="purchased" type="text" placeholder="Ordered" value="{{inventory.purchased}}" class="form-control" /></td>
+   	</tr>
+   </table>
+   </div>
+   
+
+   
+   
+<button type="submit " class="btn btn-success ">Save</button>
+
+</form>
+</div>
+
+
+{% endblock %}
+{# [END form] #}

@@ -1,0 +1,66 @@
+ {# # Copyright 2015 Google Inc. # # Licensed under the Apache License, Version 2.0 (the "License"); # you may not use this file except in compliance with the License. # You may obtain a copy of the License at # # http://www.apache.org/licenses/LICENSE-2.0 # # Unless required by applicable law or agreed to in writing, software # distributed under the License is distributed on an "AS IS" BASIS, # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. # See the License for the specific language governing permissions and # limitations under the License. #}
+<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td,
+    th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+
+</style>
+
+
+
+
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <div class="story-content" style="width:100%">
+    <h1 class="header" style="text-align:center">TRACK SHIPMENT</h1>
+                            <table style="width:100%; font-size:100%">
+                                <col width=5%>
+                                <col width=90%>
+                                <col width=5%>
+                                <tr>
+                                    <th>Order Date</th>
+                                    <th>Items</th>
+                                    <th>Tracking Code</th>
+                                </tr>
+                                <tr>
+                                    <td>10/09/2018</td>
+                                    <td>| 3 Mint Disposables | 3 Peach Disposables | 3 Blue Raspberry Disposables | 1 Raspberry Ice Bottle | 4 NEW iVape Devices (RED)</td>
+                                    <td><a target="blank" style="color:blue" href="https://tools.usps.com/go/TrackConfirmAction.action?tLabels=CODEHERE"></a></td>
+                                </tr>
+
+                            </table>
+        <h1 class="header" style="text-align:center; font-size:30px" id="inventory">INVENTORY</h1>
+        <h2 style="text-align:center">Juul Compatible Pods</h2>
+        <table>
+            
+            <tr>
+                <th>Flavor</th>
+                <th>Amt Remain</th>
+                <th>Ordered</th>
+            </tr>
+            {% for item in inventory %}
+            <tr>
+                <td style="font-size:100%">{{ item.name }}</td>
+                <td>{{ item.remain }}</td>
+               
+                <td>{{ item.purchased }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+{% endblock %}
